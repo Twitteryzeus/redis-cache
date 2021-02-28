@@ -21,7 +21,7 @@ app.use(responseTime());
 // create an api/search route
 app.get('/api/search', (req, res) => {
   // Extract the query from url and trim trailing spaces
-  const query = (req.query.query).trim();
+  const query = (req.query.query || ``).trim();
   // Build the Wikipedia API url
   const searchUrl = `https://en.wikipedia.org/w/api.php?action=parse&format=json&section=0&page=${query}`;
 
